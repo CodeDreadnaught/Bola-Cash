@@ -20,8 +20,14 @@
   body::-webkit-scrollbar {
     display: none;
   }
-  input:focus, textarea:focus, select:focus {
+  input , textarea {
+    background: transparent;
+  }
+  input:focus, textarea:focus, select:focus, button:focus {
     outline: none;
+  }
+  input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    @apply hidden;
   }
 }
 
@@ -40,10 +46,58 @@
   .grid-container-text {
     grid-area: grid-text;
   }
+  .login-page-modal {
+    background: url("../src/assets/images/recycling-selection-image.png");
+    background-size: cover;
+    background-position-x: -25rem;
+  }
+  .login-backdrop {
+    backdrop-filter: blur(4px);
+  }
+  .login-backdrop-screen {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  .activate-position .login-page-modal {
+    transform: translateX(100%);
+    right: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .activate-position .login-info-modal {
+    transform: translateX(-100%);
+    left: 0;
+  }
+
+  @media screen and (max-width: 900px) {
+    .login-page-modal {
+      background-position-x: 0;
+      border-top-left-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+    .login-backdrop {
+      backdrop-filter: blur(0);
+    }
+    .activate-position .login-page-modal {
+      transform: translateX(0);
+      transform: translateY(-67vh);
+    }
+    .activate-position .login-info-modal {
+      transform: translateX(0);
+      transform: translateY(19.72rem);
+    }
+  }
 }
 
 @layer utilities {
   .center {
     @apply grid place-items-center;
+  }
+  .gen-transistion {
+    transition: all 0.35s ease-in-out;
+  }
+  .linear-transistion {
+    transition: all 1s linear;
   }
 }

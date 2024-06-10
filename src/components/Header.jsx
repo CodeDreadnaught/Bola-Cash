@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import NavLoginContext from "../context/NavLoginContext";
 import BolaCashLogo from "../assets/images/bola-cash-logo.png";
 import GreenButton from "./GreenButton";
 
 const Header = () => {
-    const activeLinkStyle = ({ isActive }) => isActive ? "font-extrabold" : "font-normal"; 
+    const { setIfClickSignIn } = useContext(NavLoginContext),
+    activeLinkStyle = ({ isActive }) => isActive ? "font-extrabold gen-transistion" : "font-normal gen-transistion"; 
 
     return (
         <header>
@@ -22,9 +25,9 @@ const Header = () => {
                 <section>
                     <section>
                         <ul className="hidden lg:flex">
-                            <li className="p-[1rem]">{<NavLink to="/login">Sign in</NavLink>}</li>
+                            <li onClick={() => setIfClickSignIn(true)} className="p-[1rem]">{<NavLink to="/login">Sign in</NavLink>}</li>
                             <li className="center ml-[1.6rem] mr-[1.05rem]">|</li>
-                            <li>{<NavLink to="/login"><GreenButton className="p-[1rem]">Sign up</GreenButton></NavLink>}</li>
+                            <li onClick={() => setIfClickSignIn(false)}>{<NavLink to="/login"><GreenButton className="p-[1rem]">Sign up</GreenButton></NavLink>}</li>
                         </ul>
                         <section className="w-[3rem] h-[3rem] py-[0.781rem] px-[0.281rem] flex flex-col justify-between lg:hidden">
                             <section className="h-[0.188rem] bg-[#292D32] rounded-[5px]"></section>
