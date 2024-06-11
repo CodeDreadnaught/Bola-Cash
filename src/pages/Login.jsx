@@ -1,19 +1,23 @@
 import { useEffect, useState, useContext } from "react";
 import NavLoginContext from "../context/NavLoginContext";
+import { createAccount, signIn } from "../requests/APIRequest";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import RecycleBackground from "../assets/images/landing-page-images/repeated-recycle-icon-background.png";
 import CreateAccount from "../components/CreateAccount";
 import SignIn from "../components/SignIn";
 
 const Login = () => {
+    const signInElement = <SignIn onSubmitForm={signIn} />,
+    createAccountElement = <CreateAccount onSubmitForm={createAccount} />;
+
     const { ifClickSignIn, setIfClickSignIn } = useContext(NavLoginContext),
-    [displayedFormElement, setDisplayedFormElement] = useState(ifClickSignIn ? <SignIn /> : <CreateAccount />);
+    [displayedFormElement, setDisplayedFormElement] = useState(ifClickSignIn ? signInElement : createAccountElement);
 
     useEffect(()=> {
         if (ifClickSignIn) {
-            setDisplayedFormElement(<SignIn />);
+            setDisplayedFormElement(signInElement);
         } else {
-            setDisplayedFormElement(<CreateAccount />);
+            setDisplayedFormElement(createAccountElement);
         }
 
     }, [ifClickSignIn]);
@@ -22,7 +26,7 @@ const Login = () => {
         setIfClickSignIn(prevState => !prevState);
     };
 
-    const style = ifClickSignIn ? "flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full" : "p-[1rem] lg:p-0 flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full activate-position";
+    const style = ifClickSignIn ? "flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full linear-transistion" : "linear-transistion p-[1rem] lg:p-0 flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full activate-position";
 
     return (
         <HelmetProvider>
@@ -32,7 +36,7 @@ const Login = () => {
                 </Helmet>
                 <img src={RecycleBackground} className="fixed size-full object-cover z-[3] scale-[1.2] opacity-[0.07]" />
                 <div className="fixed size-full z-[2] bg-white"></div>
-                <div className="login-page fixed size-full z-[4] lg:p-[4rem] p-[2.4rem] center">
+                <div className="login-page fixed size-full z-[4] lg:p-[4rem] p-[1.2rem] center">
                         <div className={style}>
                             <section className="login-page-modal linear-transistion lg:w-[50%] lg:h-[calc(60rem-4rem)] relative z-[7] center rounded-tl-[20px] rounded-bl-[20px] h-[calc(18rem-2.4rem)]">
                                 <section className="login-backdrop size-full absolute z-[3]"></section>

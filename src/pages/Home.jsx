@@ -8,10 +8,14 @@ import HowItWorksImage from "../assets/images/landing-page-images/how-it-works.s
 import OrderIconImage from "../assets/images/landing-page-images/landing-page-order-icon.svg";
 import GreenButton from "../components/GreenButton";
 import ServiceCards from "../components/ServiceCards";
+import { useContext } from "react";
+import NavLoginContext from "../context/NavLoginContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+    const { setIfClickSignIn } = useContext(NavLoginContext);
+
     return(
             <HelmetProvider>
                 <main className="overflow-x-hidden">
@@ -23,7 +27,7 @@ const Home = () => {
                         <section className="mb-[3rem] lg:mb-[0] lg:w-[70rem]">
                             <h1 className="font-semibold text-[2.4rem] mb-[1.2rem] lg:mb-[1.6rem]  leading-[1.2] lg:text-[4.8rem] lg:leading-[7rem]">Empower Change: Transforming Tomorrow, Today!</h1>
                             <p className="mb-[1.2rem] lg:text-[2.4rem] lg:mb-[2rem]">Join the movement to make a difference! Discover the power of recycling and be a part of the solution. Together, let's create a cleaner, greener future for generations to come. Click below to get started!</p>
-                            <Link to="/login"><GreenButton className="py-[1.6rem] px-[2.2rem] lg:py-[1.4rem] lg:px-[3.2rem] font-semibold">Get Started</GreenButton></Link>
+                            <Link to="/login" onClick={() => setIfClickSignIn(false)}><GreenButton className="py-[1.6rem] px-[2.2rem] lg:py-[1.4rem] lg:px-[3.2rem] font-semibold">Get Started</GreenButton></Link>
                         </section>
                         <section className="lg:w-[100%-70rem] lg:h-full">
                             <img src={HeroImage} alt="Hero Image" className="lg:block" />

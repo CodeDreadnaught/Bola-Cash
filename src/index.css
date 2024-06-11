@@ -87,6 +87,15 @@
       transform: translateX(0);
       transform: translateY(15.72rem);
     }
+    .hamburger-icon.active section:nth-child(1) {
+      transform: rotate(45deg) translateY(0.85rem);
+    }
+    .hamburger-icon.active section:nth-child(2) {
+      display: none;
+    }
+    .hamburger-icon.active section:nth-child(3) {
+      transform: rotate(-45deg) translateY(-0.85rem);
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SignIn = () => {
+const SignIn = props => {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -17,6 +17,7 @@ const SignIn = () => {
 
     const submitHandler = event => {
         event.preventDefault();
+        props.onSubmitForm(formData);
     }
 
     return (
