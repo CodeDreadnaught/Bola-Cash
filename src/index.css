@@ -81,11 +81,11 @@
     }
     .activate-position .login-page-modal {
       transform: translateX(0);
-      transform: translateY(-67vh);
+      transform: translateY(-42.5rem);
     }
     .activate-position .login-info-modal {
       transform: translateX(0);
-      transform: translateY(19.72rem);
+      transform: translateY(15.72rem);
     }
   }
 }

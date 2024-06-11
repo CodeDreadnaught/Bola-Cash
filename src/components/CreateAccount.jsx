@@ -38,7 +38,7 @@ const CreateAccount = () => {
     return (
         <form className="lg:w-[55rem] lg:p-[2rem]" onSubmit={submitHandler}>
             <section>
-                <h1 className="text-center font-semibold lg:text-[3rem] lg:mb-[0.4rem] text-[2.4rem] mb-[0.476rem]">Create Account</h1>
+                <h1 className="text-center font-semibold lg:text-[3rem] lg:mb-[0.4rem] text-[2.4rem] mb-[0.476rem] pt-[0.2rem] leading-[2rem] lg:leading-[3rem]">Create Account</h1>
                 <p className="text-center leading-[1.936rem] lg:leading-[2.905rem] lg:text-[2rem] mb-[1.3rem] lg:mb-[2rem] text-[1.5rem] px-[1rem] lg:px-0">Click on the Sign In button in the welcome section to login if you already have an account</p>
                 <section className="flex flex-col items-center lg:mt-[2rem]">
                     <input type="text" name="username" required onChange={changeHandler} value={formData.username} placeholder="User Name" className="lg:w-[35.2rem] placeholder:text-[1.43rem] lg:h-[4.2rem]  w-[25.928rem] h-[3.5rem] border border-[#6BB16B] px-[0.9rem] rounded-[0.2rem] lg:px-[1rem]" />

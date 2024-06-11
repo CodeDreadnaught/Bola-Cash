@@ -22,7 +22,7 @@ const Login = () => {
         setIfClickSignIn(prevState => !prevState);
     };
 
-    const style = ifClickSignIn ? "flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full" : "flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full activate-position";
+    const style = ifClickSignIn ? "flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full" : "p-[1rem] lg:p-0 flex flex-col-reverse lg:flex-row bg-white rounded-[20px] shadow-[0_0_0.1rem_#6BB16B] w-full activate-position";
 
     return (
         <HelmetProvider>
@@ -34,7 +34,7 @@ const Login = () => {
                 <div className="fixed size-full z-[2] bg-white"></div>
                 <div className="login-page fixed size-full z-[4] lg:p-[4rem] p-[2.4rem] center">
                         <div className={style}>
-                            <section className="login-page-modal linear-transistion lg:w-[50%] lg:h-[calc(60rem-4rem)] relative z-[7] center rounded-tl-[20px] rounded-bl-[20px] h-[calc(30dvh-2.4rem)]">
+                            <section className="login-page-modal linear-transistion lg:w-[50%] lg:h-[calc(60rem-4rem)] relative z-[7] center rounded-tl-[20px] rounded-bl-[20px] h-[calc(18rem-2.4rem)]">
                                 <section className="login-backdrop size-full absolute z-[3]"></section>
                                 <section className="login-backdrop-screen size-full absolute z-[3]"></section>
                                     <section className="text-center relative z-[5]">
@@ -43,7 +43,7 @@ const Login = () => {
                                         <button onClick={clickHandler} className="lg:py-[1.4rem] gen-transistion lg:px-[3.2rem] lg:text-[2.251rem] lg:leading-[2.724rem] px-[1.858rem] py-[1.45rem] leading-[1.936rem] rounded-[2px] font-semibold lg:rounded-[4px] border border-[#0E3A0E]">{ifClickSignIn? "Register" : "Sign In"}</button>
                                     </section>
                             </section>
-                            <section className="login-info-modal linear-transistion lg:w-[50%] lg:h-[calc(60rem-4rem)] static z-[6] lg:rounded-tr-[20px] lg:rounded-br-[2rem] center h-[calc(70dvh-2.4rem)]">
+                            <section className="login-info-modal linear-transistion lg:w-[50%] lg:h-[calc(60rem-4rem)] static z-[6] lg:rounded-tr-[20px] lg:rounded-br-[2rem] center h-[calc(45rem-2.4rem)]">
                                 {displayedFormElement}
                             </section>
                         </div>
