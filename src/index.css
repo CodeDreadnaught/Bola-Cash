@@ -96,6 +96,9 @@
     .hamburger-icon.active section:nth-child(3) {
       transform: rotate(-45deg) translateY(-0.85rem);
     }
+    .hamburger-icon.active .mobile-navigation-menu {
+      left: 0
+    }
   }
 }
 
