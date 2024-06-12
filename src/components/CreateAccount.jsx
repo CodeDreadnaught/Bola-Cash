@@ -51,7 +51,7 @@ const CreateAccount = props => {
                 } else {
                     props.onSubmitForm(formData)
                     .then(data => {
-                        if (data === "User registered succesfully") {
+                        if (data.message === "User registered succesfully") {
                             setShowModal({
                                 heading: "Success",
                                 message: `${formData.userName}; your Bola Cash account has been created, sign in to turn your trash to funds.`,
@@ -69,7 +69,7 @@ const CreateAccount = props => {
                             });
 
                             setIfClickSignIn(true);
-                        } else if (data === "user already exists") {
+                        } else if (data.message === "user already exists") {
                             setShowModal({
                                 heading: "Account Exists",
                                 message: "You already have an account with us, sign in to view your profile.",
