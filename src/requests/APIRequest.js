@@ -12,7 +12,7 @@ const createAccount = async userInfo => {
          return data;
 };
 const signIn = async userInfo => {
-    const response = await fetch("/api/bolacash/auth/login/", {
+    const response = await fetch("https://bolacash-server.onrender.com/bolacash/auth/login/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
