@@ -10,7 +10,7 @@ const createAccount = async userInfo => {
 
         console.log(data);
 
-         return;
+         return data;
 };
 const signIn = async userInfo => {
     const response = await fetch("/api/bolacash/auth/login", {

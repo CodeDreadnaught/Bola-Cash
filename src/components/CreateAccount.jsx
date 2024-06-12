@@ -12,7 +12,8 @@ const CreateAccount = props => {
         location: ""
     });
 
-    const { setShowModal } = useContext(NavLoginContext);
+    const { setShowModal } = useContext(NavLoginContext),
+    { setIfClickSignIn } = useContext(NavLoginContext);
 
     const changeHandler = event => {
         let {name, value} = event.target,
@@ -35,7 +36,8 @@ const CreateAccount = props => {
             setShowModal({
                 heading: "Invalid Contact",
                 message: "The phone number you entered is invalid, kindly make corrections and try again.",
-                on: true
+                on: true,
+                success: false
             });
         } else {
             if (formData.password === formData.confirmPassword) {
@@ -43,17 +45,65 @@ const CreateAccount = props => {
                     setShowModal({
                         heading: "Password Error",
                         message: "Your password must have at least 8 characters.",
-                        on: true
+                        on: true,
+                        success: false
                     });
                 } else {
-                    console.log(formData);
-                    props.onSubmitForm(formData);
+                    props.onSubmitForm(formData)
+                    .then(data => {
+                        if (data === "User registered succesfully") {
+                            setShowModal({
+                                heading: "Success",
+                                message: `${formData.userName}; your Bola Cash account has been created, sign in to turn your trash to funds.`,
+                                on: true,
+                                success: true
+                            });
+
+                            setFormData({
+                                userName: "",
+                                email: "",
+                                phoneNumber: "",
+                                password: "",
+                                confirmPassword: "",
+                                location: ""
+                            });
+
+                            setIfClickSignIn(true);
+                        } else if (data === "user already exists") {
+                            setShowModal({
+                                heading: "Account Exists",
+                                message: "You already have an account with us, sign in to view your profile.",
+                                on: true,
+                                success: false
+                            });
+
+                            setFormData({
+                                userName: "",
+                                email: "",
+                                phoneNumber: "",
+                                password: "",
+                                confirmPassword: "",
+                                location: ""
+                            });
+
+                            setIfClickSignIn(true);
+                        }
+                    })
+                    .catch(error => {
+                        setShowModal({
+                            heading: "Network Error",
+                            message: "Your internet has been disconnected, please reconnect and try again.",
+                            on: true,
+                            success: false
+                        });
+                    });
                 }
             } else {
                 setShowModal({
                     heading: "Password Error",
                     message: "The passwords you inputed are different, kindly make corrections and try again.",
-                    on: true
+                    on: true,
+                    success: false
                 });
             }
         }

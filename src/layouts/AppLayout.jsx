@@ -10,7 +10,8 @@ const AppLayout = () => {
     [ showModal, setShowModal ] = useState({
         heading: "Error",
         message: "You are not authorized to perform this action",
-        on: false
+        on: false,
+        success: false
     });
 
     return (
