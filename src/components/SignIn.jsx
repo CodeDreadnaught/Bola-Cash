@@ -28,7 +28,7 @@ const SignIn = props => {
                 case "Login Successful" :
                     // Access Token 
                     setShowModal({
-                        heading: "You're Now Logged In",
+                        heading: "You're Logged In",
                         message: "Lets get right into the art of turning your trash to funds.",
                         on: true,
                         success: true
