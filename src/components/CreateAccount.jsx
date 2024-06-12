@@ -90,7 +90,6 @@ const CreateAccount = props => {
                         }
                     })
                     .catch(error => {
-                        console.log(error);
                         setShowModal({
                             heading: "Network Error",
                             message: "Your internet has been disconnected, please reconnect and try again.",

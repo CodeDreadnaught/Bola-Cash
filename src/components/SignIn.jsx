@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = props => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -20,32 +23,42 @@ const SignIn = props => {
         props.onSubmitForm(formData)
         .then(data => {
             switch (data.message) {
-                case "" :
+                case "Login Successful" :
+                    // Access Token 
                     setShowModal({
                         heading: "Success",
-                        message: `${formData.userName}; your Bola Cash account has been created, sign in to turn your trash to funds.`,
+                        message: "Welcome back, lets turn your trash to funds.",
                         on: true,
                         success: true
                     });
+
+                    navigate("/");
+
+                    setFormData({
+                        email: "",
+                        password: ""
+                    });
+
                 break;
-            }
-            if (data.message === "User registered succesfully") {
-                
-
-                setFormData({
-                    userName: "",
-                    email: "",
-                    phoneNumber: "",
-                    password: "",
-                    confirmPassword: "",
-                    location: ""
-                });
-
-                setIfClickSignIn(true);
+                case "Password is incorrect" :
+                    setShowModal({
+                        heading: "Error",
+                        message: "The password you have entered is incorrect, kindly make corrections and try again",
+                        on: true,
+                        success: false
+                    });
+                break;
+                case "User with email not found!" :
+                    setShowModal({
+                        heading: "Login Error",
+                        message: "There is no account with the information you provided, kindly recheck your details or click on register to create an account.",
+                        on: true,
+                        success: false
+                    });
+                break;
             }
         })
         .catch(error => {
-            console.log(error);
             setShowModal({
                 heading: "Network Error",
                 message: "Your internet has been disconnected, please reconnect and try again.",
