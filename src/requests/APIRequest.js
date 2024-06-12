@@ -2,7 +2,7 @@ const createAccount = async userInfo => {
     const response = await fetch("/api/bolacash/auth/register", {
         method: "POST",
         headers: {
-            "Content-Type": "Authorization"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(userInfo)
         }),
