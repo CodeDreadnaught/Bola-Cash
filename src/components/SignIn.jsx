@@ -19,13 +19,18 @@ const SignIn = props => {
         event.preventDefault();
         props.onSubmitForm(formData)
         .then(data => {
+            switch (data.message) {
+                case "" :
+                    setShowModal({
+                        heading: "Success",
+                        message: `${formData.userName}; your Bola Cash account has been created, sign in to turn your trash to funds.`,
+                        on: true,
+                        success: true
+                    });
+                break;
+            }
             if (data.message === "User registered succesfully") {
-                setShowModal({
-                    heading: "Success",
-                    message: `${formData.userName}; your Bola Cash account has been created, sign in to turn your trash to funds.`,
-                    on: true,
-                    success: true
-                });
+                
 
                 setFormData({
                     userName: "",
