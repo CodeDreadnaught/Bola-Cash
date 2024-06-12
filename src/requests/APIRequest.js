@@ -1,7 +1,7 @@
 const apiUrl = "https://bolacash-server.onrender.com";
 
 const createAccount = async userInfo => {
-    const response = await fetch("apiUrl/bolacash/auth/register/", {
+    const response = await fetch(`${apiUrl}/bolacash/auth/register/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -13,7 +13,7 @@ const createAccount = async userInfo => {
          return data;
 };
 const signIn = async userInfo => {
-    const response = await fetch("apiUrl/bolacash/auth/login/", {
+    const response = await fetch(`${apiUrl}/bolacash/auth/login/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

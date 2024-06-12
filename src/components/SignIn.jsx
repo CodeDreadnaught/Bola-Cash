@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import NavLoginContext from "../context/NavLoginContext";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = props => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(),
+    { setShowModal } = useContext(NavLoginContext);
 
     const [formData, setFormData] = useState({
         email: "",
