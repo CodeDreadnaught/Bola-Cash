@@ -17,7 +17,37 @@ const SignIn = props => {
 
     const submitHandler = event => {
         event.preventDefault();
-        props.onSubmitForm(formData);
+        props.onSubmitForm(formData)
+        .then(data => {
+            if (data.message === "User registered succesfully") {
+                setShowModal({
+                    heading: "Success",
+                    message: `${formData.userName}; your Bola Cash account has been created, sign in to turn your trash to funds.`,
+                    on: true,
+                    success: true
+                });
+
+                setFormData({
+                    userName: "",
+                    email: "",
+                    phoneNumber: "",
+                    password: "",
+                    confirmPassword: "",
+                    location: ""
+                });
+
+                setIfClickSignIn(true);
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            setShowModal({
+                heading: "Network Error",
+                message: "Your internet has been disconnected, please reconnect and try again.",
+                on: true,
+                success: false
+            });
+        });
     }
 
     return (

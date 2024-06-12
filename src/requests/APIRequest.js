@@ -2,13 +2,11 @@ const createAccount = async userInfo => {
     const response = await fetch("/api/bolacash/auth/register", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "Authorization"
         },
         body: JSON.stringify(userInfo)
         }),
         data = response.json();
-
-        console.log(data);
 
          return data;
 };
@@ -24,7 +22,7 @@ const signIn = async userInfo => {
 
         console.log(data);
 
-         return;
+         return data;
 };
 
 export { createAccount, signIn };
