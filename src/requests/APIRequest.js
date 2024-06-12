@@ -6,7 +6,9 @@ const createAccount = async userInfo => {
         },
         body: JSON.stringify(userInfo)
         }),
-        data = response.json();
+        data = await response.json();
+
+        console.log(data);
 
          return data;
 };
@@ -18,7 +20,7 @@ const signIn = async userInfo => {
         },
         body: JSON.stringify(userInfo)
         }),
-        data = response.json();
+        data = await response.json();
 
         console.log(data);
 
