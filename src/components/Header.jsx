@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import NavLoginContext from "../context/NavLoginContext";
-import BolaCashLogo from "../assets/images/bola-cash-logo.png";
+import BolaCashLogo from "../assets/icons/bola-cash-logo-icon.svg";
 import GreenButton from "./GreenButton";
 
 const Header = () => {

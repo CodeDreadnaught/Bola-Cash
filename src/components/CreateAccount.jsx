@@ -49,8 +49,11 @@ const CreateAccount = props => {
                         success: false
                     });
                 } else {
+                    props.isLoading(true);
                     props.onSubmitForm(formData)
                     .then(data => {
+                        props.isLoading(false);
+
                         if (data.message === "User registered succesfully") {
                             setShowModal({
                                 heading: "Success",
@@ -90,6 +93,7 @@ const CreateAccount = props => {
                         }
                     })
                     .catch(error => {
+                        props.isLoading(false);
                         setShowModal({
                             heading: "Network Error",
                             message: "Your internet has been disconnected, please reconnect and try again.",

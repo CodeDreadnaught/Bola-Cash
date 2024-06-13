@@ -22,8 +22,11 @@ const SignIn = props => {
 
     const submitHandler = event => {
         event.preventDefault();
+
+        props.isLoading(true);
         props.onSubmitForm(formData)
         .then(data => {
+            props.isLoading(false);
             switch (data.message) {
                 case "Login Successful" :
                     // Access Token 
@@ -61,6 +64,7 @@ const SignIn = props => {
             }
         })
         .catch(error => {
+            props.isLoading(false);
             setShowModal({
                 heading: "Network Error",
                 message: "Your internet has been disconnected, please reconnect and try again.",

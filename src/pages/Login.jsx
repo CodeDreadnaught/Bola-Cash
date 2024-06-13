@@ -5,10 +5,13 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import RecycleBackground from "../assets/images/landing-page-images/repeated-recycle-icon-background.png";
 import CreateAccount from "../components/CreateAccount";
 import SignIn from "../components/SignIn";
+import Spinner from "../components/Spinner";
 
 const Login = () => {
-    const signInElement = <SignIn onSubmitForm={signIn} />,
-    createAccountElement = <CreateAccount onSubmitForm={createAccount} />;
+    const [ isLoading, setIsLoading ] = useState(false);
+
+    const signInElement = <SignIn onSubmitForm={signIn} isLoading={setIsLoading} />,
+    createAccountElement = <CreateAccount onSubmitForm={createAccount} isLoading={setIsLoading} />;
 
     const { ifClickSignIn, setIfClickSignIn } = useContext(NavLoginContext),
     [displayedFormElement, setDisplayedFormElement] = useState(ifClickSignIn ? signInElement : createAccountElement);
@@ -34,6 +37,7 @@ const Login = () => {
                 <Helmet>
                     <title>{ifClickSignIn ? "Login" : "Register"} | Bola Cash</title>
                 </Helmet>
+                {isLoading && <Spinner />}
                 <img src={RecycleBackground} className="fixed size-full object-cover z-[3] scale-[1.2] opacity-[0.07]" />
                 <div className="fixed size-full z-[2] bg-white"></div>
                 <div className="login-page fixed size-full z-[4] lg:p-[4rem] p-[1.2rem] center">
