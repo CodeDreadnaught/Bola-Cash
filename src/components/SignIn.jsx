@@ -29,7 +29,7 @@ const SignIn = props => {
             props.isLoading(false);
             switch (data.message) {
                 case "Login Successful" :
-                    // setUser();
+                    setUser(data.user);
                     setToken(data.accessToken);
                     localStorage.setItem("site", data.accessToken);
 

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import NavLoginContext from "../context/NavLoginContext";
-import CancelICon from "../assets/icons/bola-cash-cancel-icon.svg"
-import TickICon from "../assets/icons/tick-icon.svg"
+import CancelICon from "../assets/icons/bola-cash-cancel-icon.svg";
+import TickICon from "../assets/icons/tick-icon.svg";
 
 const Alert = () => {
     const { showModal, setShowModal } = useContext(NavLoginContext),
