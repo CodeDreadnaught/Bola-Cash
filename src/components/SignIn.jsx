@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignIn = props => {
     const navigate = useNavigate(),
-    { setShowModal } = useContext(NavLoginContext);
+    { setShowModal, setUser, setToken } = useContext(NavLoginContext);
 
     const [formData, setFormData] = useState({
         email: "",
@@ -29,7 +29,10 @@ const SignIn = props => {
             props.isLoading(false);
             switch (data.message) {
                 case "Login Successful" :
-                    // Access Token 
+                    // setUser();
+                    setToken(data.accessToken);
+                    localStorage.setItem("site", data.accessToken);
+
                     setShowModal({
                         heading: "You're Logged In",
                         message: "Lets get right into the art of turning your trash to funds.",

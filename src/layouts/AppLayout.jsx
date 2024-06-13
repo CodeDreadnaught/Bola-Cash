@@ -14,9 +14,12 @@ const AppLayout = () => {
         success: false
     });
 
+    const [ user, SetUser ] = useState(null),
+    [ token, setToken ] = useState(localStorage.getItem("site") || "");
+
     return (
         <div className="app-container">
-            <NavLoginContext.Provider value={{ ifClickSignIn, setIfClickSignIn, showModal, setShowModal }}>
+            <NavLoginContext.Provider value={{ ifClickSignIn, setIfClickSignIn, showModal, setShowModal, user, SetUser, token, setToken }}>
                 <Alert />
                 <Header />
                 <Outlet />
