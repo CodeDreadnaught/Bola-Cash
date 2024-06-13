@@ -2,7 +2,7 @@ import BolaCashLogo from "../assets/icons/bola-cash-logo-icon.svg";
 
 const Spinner = () => {
     const spinnerStyles = {
-        animation: "rotate 1s linear infinite"
+        animation: "move 1s alternate infinite"
     };
 
     return (

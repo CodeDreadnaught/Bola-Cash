@@ -112,12 +112,12 @@
   .linear-transistion {
     transition: all 1s linear;
   }
-  @keyframes rotate {
+  @keyframes move {
     from {
-      transform: rotate(0deg);
+      transform: translateY(5rem);
     }
     to {
-      transform: rotate(360deg);
+      transform: translateY(-5rem);
     }
   }
 }
