@@ -15,14 +15,14 @@ const AppLayout = () => {
     });
 
     const [ user, setUser ] = useState(null),
-    // const [ user, setUser ] = useState(true),
+    [ requestPickUp, setRequestPickUp ] = useState(false),
     [ token, setToken ] = useState(localStorage.getItem("site") || null);
 
     const [ clickProfileIcon, setClickProfileIcon ] = useState(false);
 
     return (
         <div className="app-container">
-            <NavLoginContext.Provider value={{ ifClickSignIn, setIfClickSignIn, showModal, setShowModal, user, setUser, token, setToken, clickProfileIcon, setClickProfileIcon }}>
+            <NavLoginContext.Provider value={{ ifClickSignIn, setIfClickSignIn, showModal, setShowModal, user, setUser, token, setToken, clickProfileIcon, setClickProfileIcon, requestPickUp, setRequestPickUp }}>
                 <Alert />
                 <Header />
                 <Outlet />

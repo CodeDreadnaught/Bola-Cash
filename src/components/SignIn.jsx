@@ -35,7 +35,7 @@ const SignIn = props => {
 
                     setShowModal({
                         heading: "You're Logged In",
-                        message: "Lets get right into the art of turning your trash to funds.",
+                        message: `${data.user.userName}Lets get right into the art of turning your trash to funds.`,
                         on: true,
                         success: true
                     });

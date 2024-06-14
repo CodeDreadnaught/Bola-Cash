@@ -11,7 +11,7 @@ import XIcon from "../assets/icons/x.svg";
 import XWhiteIcon from "../assets/icons/x-white.svg";
 
 const Footer = () => {
-    const { setIfClickSignIn } = useContext(NavLoginContext), 
+    const { user, setIfClickSignIn } = useContext(NavLoginContext), 
     currentYear = new Date().getFullYear();
 
     return (
@@ -19,7 +19,7 @@ const Footer = () => {
             <section className="px-[2.4rem] lg:pl-[10.8rem] mb-[3rem] lg:w-[70.8rem]">
                 <section className="size-[6rem] lg:size-[12.5rem]"><img src={BolaCashLogo} alt="Bola Cash Logo" className="size-full object-cover" /></section>
                 <p className="my-[1.2rem] leading-[1.936rem] lg:my-[3.2rem] lg:text-[2.4rem] lg:leading-[3.6rem]">Click the button below to get started and be a part of the change!</p>
-                <Link to="/login" onClick={() => setIfClickSignIn(false)}><GreenButton className="py-[1.35rem] px-[3rem] lg:py-[1.4rem] lg:px-[3.2rem]">Get Started</GreenButton></Link>
+                <Link to={user ? "/ecotips" : "/login"} onClick={() => setIfClickSignIn(false)}><GreenButton className="py-[1.35rem] px-[3rem] lg:py-[1.4rem] lg:px-[3.2rem]">{user ? "Explore" : "Get Started"}</GreenButton></Link>
             </section>
             <section className="pl-[2.4rem] lg:pl-0">
                 <section className="rounded-tl-[5.912rem] lg:rounded-tl-[12.8rem] lg:w-[70.8rem] p-[3rem] lg:p-[6.4rem] border border-[#228B22] lg:bg-[#228B22] lg:text-white">

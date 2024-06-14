@@ -25,4 +25,17 @@ const signIn = async userInfo => {
          return data;
 };
 
-export { createAccount, signIn };
+const requestTrashPickUp = async pickUpInfo => {
+    const response = await fetch(`${apiUrl}/bolacash/pickup/request/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(pickUpInfo)
+        }),
+        data = await response.json();
+
+         return data;
+};
+
+export { createAccount, signIn, requestTrashPickUp };
