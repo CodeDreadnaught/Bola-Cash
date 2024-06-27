@@ -8,13 +8,17 @@ import HowItWorksImage from "../assets/images/landing-page-images/how-it-works.s
 import OrderIconImage from "../assets/images/landing-page-images/landing-page-order-icon.svg";
 import GreenButton from "../components/GreenButton";
 import ServiceCards from "../components/ServiceCards";
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import NavLoginContext from "../context/NavLoginContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-    const { user, setIfClickSignIn } = useContext(NavLoginContext);
+    const { setHeaderBg, user, setIfClickSignIn } = useContext(NavLoginContext);
+
+    useEffect(() => {
+        setHeaderBg("bg-white");
+    }, []);
 
     return(
             <HelmetProvider>

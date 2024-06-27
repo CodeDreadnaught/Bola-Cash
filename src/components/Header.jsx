@@ -8,8 +8,9 @@ import GreenButton from "./GreenButton";
 
 const Header = () => {
     const [ showMobileNavigation, setShowMobileNavigation ] = useState(false),
-    { user, setIfClickSignIn, setClickProfileIcon, requestPickUp, setRequestPickUp } = useContext(NavLoginContext),
-    activeLinkStyle = ({ isActive }) => isActive ? "font-extrabold gen-transistion" : "font-normal gen-transistion",
+    { headerBg, user, setIfClickSignIn, setClickProfileIcon, requestPickUp, setRequestPickUp } = useContext(NavLoginContext);
+
+    const activeLinkStyle = ({ isActive }) => isActive ? "font-extrabold gen-transistion" : "font-normal gen-transistion",
     hamburgerStyles = showMobileNavigation ? "hamburger-icon w-[3rem] h-[3rem] py-[0.781rem] px-[0.281rem] flex flex-col justify-between lg:hidden active" : "hamburger-icon w-[3rem] h-[3rem] py-[0.781rem] px-[0.281rem] flex flex-col justify-between lg:hidden";
     
     const toggleMenu = () => {
@@ -20,7 +21,7 @@ const Header = () => {
     return (
         <header>
             {requestPickUp && <RequestPickup />}
-            <nav className="bg-white z-[1] h-[5rem] lg:h-[8rem] w-full flex justify-between items-center lg:absolute lg:top-[3.2rem] px-[2.287rem] lg:px-[11.2rem] bg-transparent fixed">
+            <nav className={`${headerBg} z-[1] h-[5rem] lg:h-[8rem] w-full flex justify-between items-center lg:absolute lg:top-[3.2rem] px-[2.287rem] lg:px-[11.2rem] fixed`}>
                 <section>
                     <NavLink to="/"><section className="w-[2.96rem] h-[3rem] lg:w-[4.934rem] lg:h-[5rem]"><img src={BolaCashLogo} alt="Bola Cash Logo" className="size-full" /></section></NavLink>
                 </section>
@@ -28,8 +29,7 @@ const Header = () => {
                     <ul className="hidden lg:flex">
                         <li className="p-[1rem] mr-[4rem]"><NavLink to="/" className={activeLinkStyle}>Home</NavLink></li>
                         <li className="p-[1rem] mr-[4rem]"><NavLink to="/about" className={activeLinkStyle}>About</NavLink></li>
-                        <li className="p-[1rem] mr-[4rem]"><NavLink to="/ecotips" className={activeLinkStyle}>EcoTips</NavLink></li>
-                        <li className="p-[1rem]"><NavLink to="/contact" className={activeLinkStyle}>Contact</NavLink></li>
+                        <li className="p-[1rem]"><NavLink to="/ecotips" className={activeLinkStyle}>EcoTips</NavLink></li>
                     </ul>
                 </section>
                 <section>
@@ -55,7 +55,6 @@ const Header = () => {
                                     <li className="h-[4rem] center"><NavLink to="/" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Home</NavLink></li>
                                     <li className="h-[4rem] center"><NavLink to="/about" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>About</NavLink></li>
                                     <li className="h-[4rem] center"><NavLink to="/ecotips" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>EcoTips</NavLink></li>
-                                    <li className="h-[4rem] center"><NavLink to="/contact" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Contact</NavLink></li>
                                 </ul>
                                 <ul>
                                     <li className="h-[4rem] center">{

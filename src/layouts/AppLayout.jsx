@@ -6,6 +6,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const AppLayout = () => {
+    const [ headerBg, setHeaderBg ] = useState("");
+    
     const [ifClickSignIn, setIfClickSignIn] = useState(true),
     [ showModal, setShowModal ] = useState({
         heading: "Error",
@@ -22,7 +24,7 @@ const AppLayout = () => {
 
     return (
         <div className="app-container">
-            <NavLoginContext.Provider value={{ ifClickSignIn, setIfClickSignIn, showModal, setShowModal, user, setUser, token, setToken, clickProfileIcon, setClickProfileIcon, requestPickUp, setRequestPickUp }}>
+            <NavLoginContext.Provider value={{ headerBg, setHeaderBg, ifClickSignIn, setIfClickSignIn, showModal, setShowModal, user, setUser, token, setToken, clickProfileIcon, setClickProfileIcon, requestPickUp, setRequestPickUp }}>
                 <Alert />
                 <Header />
                 <Outlet />

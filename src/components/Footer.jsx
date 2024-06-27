@@ -15,7 +15,7 @@ const Footer = () => {
     currentYear = new Date().getFullYear();
 
     return (
-        <footer className="lg:pt-[6.4rem] lg:flex lg:gap-[2.4rem">
+        <footer className="lg:pt-[6.4rem] lg:flex lg:gap-[2.4rem] lg:bg-[#FAFCFB]">
             <section className="px-[2.4rem] lg:pl-[10.8rem] mb-[3rem] lg:w-[70.8rem]">
                 <section className="size-[6rem] lg:size-[12.5rem]"><img src={BolaCashLogo} alt="Bola Cash Logo" className="size-full object-cover" /></section>
                 <p className="my-[1.2rem] leading-[1.936rem] lg:my-[3.2rem] lg:text-[2.4rem] lg:leading-[3.6rem]">Click the button below to get started and be a part of the change!</p>
