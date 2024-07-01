@@ -44,7 +44,7 @@ const Home = () => {
                     </div>
                         <div className="flex flex-col gap-[3rem] lg:flex-row lg:gap-[2.4rem]">
                             <ServiceCards image={FirstCardImage} title="Collection of Recyclables" description="Make a difference with every item recycled! Our collection of recyclables feature makes it easy to dispose of materials responsibly. Join us in keeping our planet clean and green. Start recycling today!" />
-                            <ServiceCards image={SecondCardImage} title="Rewards" description="Earn rewards while you save the planet! Our rewards program allowes you to earn points for every item recycled. Start collecting rewards and make a positive impact on the environment today!" />
+                            <ServiceCards image={SecondCardImage} title="Rewards" description="Earn rewards while you save the planet! Our rewards program allows you to earn points for every item recycled. Start collecting rewards and make a positive impact on the environment today!" />
                             <ServiceCards image={ThirdCardImage} title="Recycling Tips/ Education" description="Eco-wisdom at your fingertips! Explore our recycling tips and education section for practical advice on reducing waste and recycling smarter. Join us in creating a greener tomorrow!" />
                         </div>
                         <div className="my-[3rem] lg:my-[22.4rem] lg:flex lg:gap-[4.9rem]">
