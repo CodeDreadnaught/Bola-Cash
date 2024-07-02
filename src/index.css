@@ -68,7 +68,7 @@
     left: 0;
   }
   .about-hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../src/assets/images/about-page-images/hero-section-bg.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../src/assets/images/about-page-images/hero-section-bg.webp");
     background-size: cover;
     background-position: center top;
   }
