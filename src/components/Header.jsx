@@ -50,7 +50,7 @@ const Header = () => {
                             <section className="h-[0.188rem] bg-[#292D32] rounded-[5px] gen-transistion" onClick={toggleMenu}></section>
                             <section className="h-[0.188rem] bg-[#292D32] rounded-[5px]" onClick={toggleMenu}></section>
                             <section className="h-[0.188rem] bg-[#292D32] rounded-[5px] gen-transistion" onClick={toggleMenu}></section>
-                            <section className="mobile-navigation-menu fixed top-[5rem] left-[-150vw] w-full bg-[#f2f2f2] p-[1rem] h-[calc(100%-5rem)] flex flex-col justify-between gen-transistion">
+                            <section className="mobile-navigation-menu fixed top-[5rem] left-[-150vw] w-full bg-[#f2f2f2] p-[1rem] h-[calc(100vh-5rem)] flex flex-col justify-between gen-transistion">
                                 <ul>
                                     <li className="h-[4rem] center"><NavLink to="/" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>Home</NavLink></li>
                                     <li className="h-[4rem] center"><NavLink to="/about" className={activeLinkStyle} onClick={() => setShowMobileNavigation(false)}>About</NavLink></li>

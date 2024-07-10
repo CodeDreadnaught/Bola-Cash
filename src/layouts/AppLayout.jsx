@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import EnsurePageLoadsFromTop from "../utils/EnsurePageLoadsFromTop";
 import NavLoginContext from "../context/NavLoginContext";
 import Alert from "../components/Alert";
 import Header from "../components/Header";
@@ -24,12 +25,14 @@ const AppLayout = () => {
 
     return (
         <div className="app-container">
-            <NavLoginContext.Provider value={{ headerBg, setHeaderBg, ifClickSignIn, setIfClickSignIn, showModal, setShowModal, user, setUser, token, setToken, clickProfileIcon, setClickProfileIcon, requestPickUp, setRequestPickUp }}>
-                <Alert />
-                <Header />
-                <Outlet />
-                <Footer />
-            </NavLoginContext.Provider>
+            <EnsurePageLoadsFromTop>
+                <NavLoginContext.Provider value={{ headerBg, setHeaderBg, ifClickSignIn, setIfClickSignIn, showModal, setShowModal, user, setUser, token, setToken, clickProfileIcon, setClickProfileIcon, requestPickUp, setRequestPickUp }}>
+                    <Alert />
+                    <Header />
+                    <Outlet />
+                    <Footer />
+                </NavLoginContext.Provider>
+            </EnsurePageLoadsFromTop>
         </div>
     );
 };
